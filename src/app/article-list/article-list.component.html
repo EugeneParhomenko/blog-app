@@ -1,0 +1,9 @@
+<div class="article-list">
+    <div class="article-item" *ngFor="let article of articles">
+        <div class="article-image" [ngStyle]="{'background-image': 'url(' + article.imageUrl + ')'}"></div>
+        <div class="article-title">{{ article.title }}</div>
+        <div class="article-meta">{{ article.date.toDateString() }}</div>
+        <div class="article desc">{{ article.description }}</div>
+        <a routerLink="/articles/{{ article.key }}" class="read-more">Подробнее</a>
+    </div>
+</div>
