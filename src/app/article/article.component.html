@@ -1,1 +1,6 @@
-<p>{{ article.key }}</p>
+<div class="article-page">
+    <h1 class="article-image" [ngStyle]="{'background-image': 'url(' + article.imageUrl + ')'}"></h1>
+    <div class="article-title">{{ article.title }}</div>
+    <div class="article-meta">{{ article.date.toDateString() }}</div>
+    <div class="article-content">{{ article.content }}</div>
+</div>

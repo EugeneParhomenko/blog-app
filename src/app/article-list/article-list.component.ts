@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Article } from '../common/article.model';
 import { ArticleService } from '../common/article.service';
 import { Subscription } from 'rxjs';
+import { Title } from '@angular/platform-browser';
+import { SharedService } from '../common/shared.service';
 
 @Component({
   selector: 'edm-article-list',
@@ -14,11 +16,14 @@ export class ArticleListComponent implements OnInit, OnDestroy {
   s1: Subscription;
 
   constructor(
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private titleService: Title,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     this.getArticles();
+    this.titleService.setTitle('Статьи' + this.sharedService.blogTitle);
   }
 
 

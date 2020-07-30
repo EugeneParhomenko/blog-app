@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { SharedService } from '../common/shared.service';
 
 @Component({
   selector: 'edm-about',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private sharedService: SharedService
+  ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Про автора' + this.sharedService.blogTitle);
   }
 
 }
